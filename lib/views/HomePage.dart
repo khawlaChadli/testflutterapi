@@ -38,12 +38,56 @@ class _HomePageState extends State<HomePage> {
       ),
       body: Visibility(
         visible: isLoaded,
-        // ignore: sort_child_properties_last
         child: ListView.builder(
             itemCount: competitions?.length,
             itemBuilder: (context, index) {
               return Container(
-                child: Text('$competitions'),
+                padding: const EdgeInsets.all(15),
+                child: Row(
+                  children: [
+                    Container(
+                      height: 50,
+                      width: 50,
+                      decoration: const BoxDecoration(
+                        shape: BoxShape.circle,
+                        //borderRadius: BorderRadius.circular(5),
+                        color: Colors.grey,
+                      ),
+                    ),
+                    const SizedBox(width: 15),
+                    Expanded(
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(competitions![index].CompetitionId.toString(),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 18,
+                                fontWeight: FontWeight.normal,
+                              )),
+                          Text(competitions![index].Name,
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                              style: const TextStyle(
+                                fontSize: 15,
+                                fontWeight: FontWeight.normal,
+                              )),
+                          Text(
+                            competitions![index].Location,
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                          Text(
+                            competitions![index].StartDate.toString(),
+                            maxLines: 1,
+                            overflow: TextOverflow.ellipsis,
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
               );
             }),
       ),
