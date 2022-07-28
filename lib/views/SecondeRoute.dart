@@ -1,39 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:testflutterapi/models/competition.dart';
-import 'package:testflutterapi/services/competition_service.dart';
+import 'package:testflutterapi/views/HomePage.dart';
 import 'package:testflutterapi/views/SearchPage.dart';
-import 'package:testflutterapi/views/SecondeRoute.dart';
 
-class CompetitionPage extends StatefulWidget {
-  const CompetitionPage({super.key, required this.competitionId});
-
-  final int competitionId;
+class SecondeRoute extends StatefulWidget {
+  const SecondeRoute({Key? key}) : super(key: key);
 
   @override
-  State<CompetitionPage> createState() => _CompetitionPageState();
+  State<SecondeRoute> createState() => _SecondeRouteState();
 }
 
-class _CompetitionPageState extends State<CompetitionPage> {
-  Competition? competition;
-  var isLoaded = false;
-
-  @override
-  void initState() {
-    super.initState();
-    getData();
-  }
-
-  getData() async {
-    competition =
-        await CompetitionService().getCompetitionsId(widget.competitionId);
-    if (competition != null) {
-      setState(() {
-        isLoaded = true;
-      });
-      print(competition);
-    }
-  }
-
+class _SecondeRouteState extends State<SecondeRoute> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,7 +23,7 @@ class _CompetitionPageState extends State<CompetitionPage> {
                 bottomRight: Radius.circular(5),
                 bottomLeft: Radius.circular(200))),
         title: const Text(
-          'Competition',
+          'Settings',
           textAlign: TextAlign.center,
         ),
         actions: [
@@ -95,7 +71,7 @@ class _CompetitionPageState extends State<CompetitionPage> {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const SecondeRoute()));
+                            builder: (context) => const HomePage()));
                   },
                   //size: 20,
                 ),
@@ -128,17 +104,14 @@ class _CompetitionPageState extends State<CompetitionPage> {
           )
         ],
       ),
-      body: Center(
-        child: Card(
-          child: Text(competition?.Name ?? 'ok'),
-        ),
-        //   child: RaisedButton(
-        //     onPressed: () {
-        //       Navigator.pop(context);
-        //     },
-        //     child: Text(competition?.Name ?? 'ok'),
-        //   ),
-      ),
+      // body: Center(
+      //   child: RaisedButton(
+      //     onPressed: () {
+      //       Navigator.pop(context);
+      //     },
+      //     child: Text('Back to Home !'),
+      //   ),
+      // ),
     );
   }
 }

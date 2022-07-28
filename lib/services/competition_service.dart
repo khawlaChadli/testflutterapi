@@ -21,14 +21,14 @@ class CompetitionService {
 
   Future<Competition?> getCompetitionsId(competitionId) async {
     final jsonResponse;
-    print(competitionId);
+    //print(competitionId);
     var client = http.Client();
     var uri =
         Uri.parse('https://api-d.racegorilla.com/competition/$competitionId');
     var response = await client.get(uri);
     // //var response = await http.get(
     // //Uri.https('https://api-d.racegorilla.com/competition/', competitionId));
-    print(response);
+    // print(response);
 
     if (response.statusCode == 200) {
       var jsonData = jsonDecode(response.body);
