@@ -1,5 +1,4 @@
 import 'dart:math';
-import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:testflutterapi/views/SecondeRoute.dart';
@@ -40,7 +39,7 @@ class _SearchPageState extends State<SearchPage>
                 bottomRight: Radius.circular(5),
                 bottomLeft: Radius.circular(200))),
         title: const Text(
-          'The List of Competitions',
+          'Search',
           textAlign: TextAlign.center,
         ),
         actions: [
