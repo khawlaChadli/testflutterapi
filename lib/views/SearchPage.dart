@@ -216,7 +216,7 @@ class _SearchPageState extends State<SearchPage>
                     child: IconButton(
                       splashRadius: 19.0,
                       icon: Icon(
-                        Icons.message,
+                        Icons.search,
                       ),
                       onPressed: () {
                         setState(
