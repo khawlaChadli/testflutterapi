@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:testflutterapi/models/competition.dart';
 import 'package:testflutterapi/services/competition_service.dart';
-import 'package:testflutterapi/views/SearchPage.dart';
-import 'package:testflutterapi/views/SecondeRoute.dart';
+// import 'package:testflutterapi/views/SearchPage.dart';
+// import 'package:testflutterapi/views/SecondeRoute.dart';
 
 class CompetitionPage extends StatefulWidget {
   const CompetitionPage({super.key, required this.competitionId});
@@ -37,107 +37,45 @@ class _CompetitionPageState extends State<CompetitionPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.grey,
       appBar: AppBar(
-        backgroundColor: const Color(0xFFBDBCBD),
-        shadowColor: const Color.fromARGB(255, 50, 45, 47),
-        toolbarHeight: 90,
-        elevation: 10,
-        shape: const RoundedRectangleBorder(
-            borderRadius: BorderRadius.only(
-                bottomRight: Radius.circular(5),
-                bottomLeft: Radius.circular(200))),
-        title: const Text(
-          'Competition',
-          textAlign: TextAlign.center,
+        backgroundColor: Colors.white10,
+        automaticallyImplyLeading: false,
+        title: Text(
+          'The Competitions ${widget.competitionId}',
         ),
+
+        //
+        //
+        //
+        //
+
         actions: [
-          Row(
-            children: [
-              Container(
-                height: 40,
-                width: 40,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(boxShadow: [
-                  BoxShadow(
-                      blurRadius: 7, spreadRadius: 3, color: Colors.blueGrey)
-                ], shape: BoxShape.circle, color: Colors.grey),
-                child: IconButton(
-                  icon: const Icon(Icons.search),
-                  onPressed: () {
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SearchPage()));
-                    // setState(() {
-                    //   print('ok');
-                    // });
-                  },
-                  //size: 20,
-                ),
+          Padding(
+            padding: const EdgeInsetsDirectional.fromSTEB(0, 0, 20, 0),
+            child: InkWell(
+              onTap: () {
+                //Navigator.pop(context);
+                print('ok');
+              },
+              child: const Icon(
+                Icons.logout,
+                color: Colors.black,
+                size: 24,
               ),
-              const SizedBox(
-                width: 20,
-              ),
-              Container(
-                height: 40,
-                width: 40,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(boxShadow: [
-                  BoxShadow(
-                      blurRadius: 7, spreadRadius: 3, color: Colors.blueGrey)
-                ], shape: BoxShape.circle, color: Colors.grey),
-                child: IconButton(
-                  icon: const Icon(Icons.settings),
-                  onPressed: () {
-                    /*setState(() {
-                      print('ok');
-                    });*/
-                    Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const SecondeRoute()));
-                  },
-                  //size: 20,
-                ),
-              ),
-              const SizedBox(
-                width: 20,
-              ),
-              Container(
-                height: 40,
-                width: 40,
-                alignment: Alignment.center,
-                decoration: const BoxDecoration(boxShadow: [
-                  BoxShadow(
-                      blurRadius: 7, spreadRadius: 3, color: Colors.blueGrey)
-                ], shape: BoxShape.circle, color: Colors.grey),
-                child: IconButton(
-                  icon: const Icon(Icons.logout),
-                  onPressed: () {
-                    setState(() {
-                      print('ok');
-                    });
-                  },
-                  //size: 20,
-                ),
-              ),
-              const SizedBox(
-                width: 20,
-              )
-            ],
-          )
+            ),
+          ),
         ],
+        centerTitle: true,
+        elevation: 2,
       ),
       body: Center(
-        child: Card(
-          child: Text(competition?.Name ?? 'ok'),
+        child: RaisedButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          child: Text(competition?.Name ?? 'hey'),
         ),
-        //   child: RaisedButton(
-        //     onPressed: () {
-        //       Navigator.pop(context);
-        //     },
-        //     child: Text(competition?.Name ?? 'ok'),
-        //   ),
       ),
     );
   }
