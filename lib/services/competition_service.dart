@@ -1,3 +1,4 @@
+import 'package:intl/intl.dart';
 import 'package:testflutterapi/models/competition.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
@@ -42,4 +43,9 @@ class CompetitionService {
   }
 
   //}
+}
+
+String formattedDate(timeStamp) {
+  var dateFromTimeStamp = DateTime.fromMicrosecondsSinceEpoch(timeStamp * 1000);
+  return DateFormat('EEE, MMM d').format(dateFromTimeStamp);
 }

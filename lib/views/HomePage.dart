@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:testflutterapi/models/competition.dart';
 import 'package:testflutterapi/services/competition_service.dart';
 import 'package:testflutterapi/views/CompetitionPage.dart';
-//import 'package:test/views/SecondeRoute.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -121,7 +120,7 @@ Widget _competitionCard2(competitions, index, context) {
                 ),
               ),
               Container(
-                margin: const EdgeInsetsDirectional.fromSTEB(605, 40, 0, 0),
+                margin: const EdgeInsetsDirectional.fromSTEB(645, 40, 0, 0),
                 child: Chip(
                   // padding: const EdgeInsets.all(
                   //   2,
@@ -174,11 +173,11 @@ Widget _competitionCard2(competitions, index, context) {
                 ],
               ),
               Container(
-                margin: const EdgeInsetsDirectional.fromSTEB(600, 10, 0, 0),
+                margin: const EdgeInsetsDirectional.fromSTEB(620, 10, 0, 0),
                 child: Row(
                   children: [
                     Text(
-                      competitions![index].StartDate.toString(),
+                      formattedDate(competitions![index].StartDate),
                       style: const TextStyle(
                         fontSize: 12,
                         color: Colors.white,

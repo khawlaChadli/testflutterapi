@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:testflutterapi/models/competition.dart';
 import 'package:testflutterapi/services/competition_service.dart';
-// import 'package:testflutterapi/views/SearchPage.dart';
-// import 'package:testflutterapi/views/SecondeRoute.dart';
 
 class CompetitionPage extends StatefulWidget {
   const CompetitionPage({super.key, required this.competitionId});
@@ -69,14 +67,32 @@ class _CompetitionPageState extends State<CompetitionPage> {
         centerTitle: true,
         elevation: 2,
       ),
-      body: Center(
-        child: RaisedButton(
-          onPressed: () {
-            Navigator.pop(context);
-          },
-          child: Text(competition?.Name ?? 'hey'),
+      body: Row(children: [
+        Expanded(
+          child: Column(children: [
+            Container(
+              margin: const EdgeInsetsDirectional.fromSTEB(0, 20, 605, 0),
+              child: Text(competition?.Name ?? 'hey'),
+            ),
+            Container(
+              margin: const EdgeInsetsDirectional.fromSTEB(0, 20, 605, 0),
+              child: Text(competition?.Location ?? 'hey'),
+            ),
+            // Container(
+            //   margin: const EdgeInsetsDirectional.fromSTEB(0, 20, 605, 0),
+            //   child: Text(competition?.Status ?? 'hey'),
+            // ),
+            Container(
+              margin: const EdgeInsetsDirectional.fromSTEB(0, 20, 605, 0),
+              child: Text(competition?.Sport ?? 'hey'),
+            ),
+            Container(
+              margin: const EdgeInsetsDirectional.fromSTEB(0, 20, 605, 0),
+              child: Text(formattedDate(competition?.StartDate)),
+            ),
+          ]),
         ),
-      ),
+      ]),
     );
   }
 }
